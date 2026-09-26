@@ -99,21 +99,22 @@ ul {
 }
 
 /* ==========================================================================
-   4. HEADER
+   4. HEADER & TOP CORNER LANG
    ========================================================================== */
-.header-controls {
-    display: flex;
-    align-items: center;
-    gap: var(--space-24);
-    flex-wrap: wrap;
+.layout-wrapper {
+    position: relative; /* Nécessaire pour positionner le sélecteur par rapport à la page */
 }
 
-.lang-switcher {
+.top-corner-lang {
+    position: absolute;
+    top: var(--space-24);
+    right: var(--space-24);
     font-family: var(--font-mono);
     font-size: 0.75rem;
     display: flex;
     gap: var(--space-8);
     letter-spacing: 0.05em;
+    z-index: 10;
 }
 
 .lang-active {
@@ -128,6 +129,49 @@ ul {
 .lang-link:hover {
     color: var(--color-text-main);
 }
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-16);
+    padding-top: var(--space-32); /* Laisse de l'espace pour le sélecteur en haut */
+    padding-bottom: var(--space-16);
+}
+
+/* Ajustement des marges sur PC pour les grands écrans */
+@media (min-width: 768px) {
+    .layout-wrapper {
+        padding: var(--space-48) var(--space-48);
+    }
+    .top-corner-lang {
+        top: var(--space-48);
+        right: var(--space-48);
+    }
+    .site-header {
+        padding-top: var(--space-16); /* Plus besoin d'espace forcé puisque le header descend naturellement */
+    }
+}
+ /*ICI POUR STATUT INDICATOR*/
+.status-indicator {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.status-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-accent-blue);
+    border-radius: 50%;
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
 
 /* ==========================================================================
    5. HERO SECTION
@@ -338,4 +382,10 @@ ul {
     .social-list {
         gap: var(--space-8) var(--space-16);
     }
+}
+
+@keyframes pulse {
+    0% { opacity: 0.4; transform: scale(0.95); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.4; transform: scale(0.95); }
 }
