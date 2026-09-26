@@ -101,40 +101,32 @@ ul {
 /* ==========================================================================
    4. HEADER
    ========================================================================== */
-.site-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Allows wrapping gracefully on very small screens */
-    flex-wrap: wrap;
-    gap: var(--space-16);
-    padding-bottom: var(--space-16);
-}
-
-.logo {
-    font-family: var(--font-display);
-    font-weight: 700;
-    color: var(--color-text-main);
-    font-size: 0.9375rem;
-    letter-spacing: 0.05em;
-}
-
-.status-indicator {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
+.header-controls {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(--space-24);
+    flex-wrap: wrap;
+}
+
+.lang-switcher {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    display: flex;
+    gap: var(--space-8);
     letter-spacing: 0.05em;
 }
 
-.status-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--color-accent-blue);
-    border-radius: 50%;
-    /* Subtle pulse animation */
-    animation: pulse 2.5s infinite ease-in-out;
+.lang-active {
+    color: var(--color-text-main);
+    font-weight: 500;
+}
+
+.lang-link {
+    color: var(--color-text-muted);
+}
+
+.lang-link:hover {
+    color: var(--color-text-main);
 }
 
 /* ==========================================================================
